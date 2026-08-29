@@ -2,3 +2,7 @@ python-dotenv
 pandas
 numpy
 pymongo
+certifi
+
+## This is used to refer to the setup.py where we build the whole project as a package
+##  -e .
