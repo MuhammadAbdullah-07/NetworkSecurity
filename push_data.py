@@ -50,7 +50,7 @@ class NetworkDataExtract():
             self.records=records
 
             ## Connects to MongoDB Atlas using your connection string from .env 
-            self.mongo_client=pymongo.MongoClient(MONGO_DB_URL)
+            self.mongo_client=pymongo.MongoClient(MONGO_DB_URL,tls=True, tlsCAFile=ca)
 
             ## Selects the database inside MongoDB. Like choosing which warehouse to go into.
             self.database=self.mongo_client[self.database]
@@ -69,8 +69,8 @@ class NetworkDataExtract():
 
 
 if __name__=='__main__':
-    FILE_PATH="Network_Data/PhishingData.csv"
-    DATABASE="AbdullahDB"
+    FILE_PATH="Network_Data\phisingData.csv"
+    DATABASE="NetworkSecurityDB"
     Collection="NetworkData" 
     networkobj=NetworkDataExtract()
     records=networkobj.csv_to_json_conversion(file_path=FILE_PATH)
