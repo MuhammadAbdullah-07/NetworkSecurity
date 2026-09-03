@@ -4,6 +4,7 @@ numpy
 pymongo
 pymongo[srv]==4.17.0
 certifi
+scikit-learn
 
 ## This is used to refer to the setup.py where we build the whole project as a package
 ##  -e .
