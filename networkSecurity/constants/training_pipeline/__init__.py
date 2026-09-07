@@ -1,4 +1,6 @@
 import os
+import numpy as np
+
 ## common/global constants that will be used across the whole project
 TARGET_COLUMN = "Result"                    # the column you want to predict
 PIPELINE_NAME: str = "NetworkSecurity"      # your pipeline name
@@ -28,3 +30,18 @@ DATA_VALIDATION_VALID_DIR :str= "validated"
 DATA_VALIDATION_INVALID_DIR :str= "invalidated"
 DATA_VALIDATION_DRIFT_REPORT_DIR :str= "drift_report"
 DATA_VALIDATION_DRIFT_REPORT_FILE_NAME :str= "report.yaml"
+
+
+### DATA TRANSFORMATION CONSTANT USED ALL OVER THE PROJECT
+
+DATA_TRANSFORMATION_DIR_NAME: str = "data_transformation"              # folder where all transformation files go
+DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR: str = "transformed"          # Folder having transformed train.npy & test.npy are saved
+DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR: str = "transformed_object" # Folder where preprocessing.pkl is saved
+PREPROCESSING_OBJECT_FILE_NAME="preprocessing.pkl"                     # Name of the saved preprocessor file (KNNImputer saved here)
+
+## KNN imputer to replace Nan values
+DATA_TRANSFORMATION_IMPUTER_PARAMS: dict={
+    "missing_values" : np.nan,
+    "n_neighbors" : 3,
+    "weights" : "uniform",
+}
