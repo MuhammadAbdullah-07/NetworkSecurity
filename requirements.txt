@@ -7,6 +7,8 @@ certifi
 scikit-learn
 dill
 pyaml
+mlflow
+dagshub
 
 ## This is used to refer to the setup.py where we build the whole project as a package
 ##  -e .

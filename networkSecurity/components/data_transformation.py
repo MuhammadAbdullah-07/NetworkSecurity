@@ -53,17 +53,19 @@ class DataTransformation:
             train_df=DataTransformation.read_data(self.data_validation_artifact.valid_train_file_path)
             test_df=DataTransformation.read_data(self.data_validation_artifact.valid_test_file_path)
 
+             # CHECK 1 — NaN in raw data
+            print("Train NaN before anything:", train_df.isna().sum().sum())
+            print("Test NaN before anything:", test_df.isna().sum().sum())
+
             ## REMOVING TARGET COLUMN FROM TRAINING DATAFRAME
             input_features_train_df=train_df.drop(columns=[TARGET_COLUMN]) ## X
-            target_feature_train_df=train_df[TARGET_COLUMN] ## y 
-            ## Replacing the values of Target feature values with 0,1
-            target_feature_train_df=target_feature_train_df.replace(-1,0) ## replacing -1 with 0
+            target_feature_train_df=train_df[TARGET_COLUMN].replace(-1,0) ## y & replacing -1 with 0
 
             ## REMOVING TARGET COLUMN FROM TEST DATAFRAME
             input_features_test_df=test_df.drop(columns=[TARGET_COLUMN]) ## X
-            target_feature_test_df=test_df[TARGET_COLUMN] ## y  
-            ## Replacing the values of Target feature values with 0,1
-            target_feature_test_df=target_feature_test_df.replace(-1,0) ## replacing -1 with 0
+            target_feature_test_df=test_df[TARGET_COLUMN].replace(-1,0) ## y  
+            # CHECK 2 — NaN after dropping target
+            print("Train NaN after drop:", input_features_train_df.isna().sum().sum())
 
             ## Calling the function inside the class
             preprocessor=self.get_data_transformer_object()
@@ -71,6 +73,10 @@ class DataTransformation:
             ## Using this for transforming on my training df
             transformed_input_features_train_df=preprocessor.fit_transform(input_features_train_df)
             transformed_input_features_test_df=preprocessor.transform(input_features_test_df)
+
+            # CHECK 3 — NaN after transformation
+            print("Train NaN after transform:", np.isnan(transformed_input_features_train_df).sum())
+            print("Test NaN after transform:", np.isnan(transformed_input_features_test_df).sum())
 
             # Combining transformed train features + train target
             train_arr=np.c_[transformed_input_features_train_df,np.array(target_feature_train_df)]
@@ -89,7 +95,7 @@ class DataTransformation:
                 transformed_test_file_path=self.data_transformation_config.transformed_test_file_path
             )
 
-            return data data_transformation_artifact
+            return data_transformation_artifact
             
         except Exception as e:
             raise NetworkSecurityException(e,sys)   
