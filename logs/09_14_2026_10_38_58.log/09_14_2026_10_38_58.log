@@ -1,0 +1,47 @@
+[2026-09-14 10:39:47,804] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2026-09-14 10:39:47,901] 107 dagshub - INFO - Accessing as MuhammadAbdullah-07
+[2026-09-14 10:39:49,170] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/MuhammadAbdullah-07/NetworkSecurity "HTTP/1.1 200 OK"
+[2026-09-14 10:39:50,296] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2026-09-14 10:39:50,300] 107 dagshub - INFO - Initialized MLflow to track repo "MuhammadAbdullah-07/NetworkSecurity"
+[2026-09-14 10:39:50,302] 107 dagshub - INFO - Repository MuhammadAbdullah-07/NetworkSecurity initialized!
+[2026-09-14 10:39:50,304] 24 networkSecurity - INFO - Initiate the data ingestion from main.py
+[2026-09-14 10:40:21,603] 76 networkSecurity - INFO - Performing Train Test split on Dataframe
+[2026-09-14 10:40:21,606] 82 networkSecurity - INFO - Exporting Train & Test file path
+[2026-09-14 10:40:21,796] 92 networkSecurity - INFO - Train & Test file path Exported !
+[2026-09-14 10:40:21,797] 27 networkSecurity - INFO - Data initiation Started
+[2026-09-14 10:40:21,798] 29 networkSecurity - INFO - Data initiation Completed
+[2026-09-14 10:40:21,959] 36 networkSecurity - INFO - Initiate the data validation from main.py
+[2026-09-14 10:40:22,355] 40 networkSecurity - INFO - required number of columns:31
+[2026-09-14 10:40:22,362] 41 networkSecurity - INFO - dataframe has columns:Index(['having_IP_Address', 'URL_Length', 'Shortining_Service',
+       'having_At_Symbol', 'double_slash_redirecting', 'Prefix_Suffix',
+       'having_Sub_Domain', 'SSLfinal_State', 'Domain_registeration_length',
+       'Favicon', 'port', 'HTTPS_token', 'Request_URL', 'URL_of_Anchor',
+       'Links_in_tags', 'SFH', 'Submitting_to_email', 'Abnormal_URL',
+       'Redirect', 'on_mouseover', 'RightClick', 'popUpWidnow', 'Iframe',
+       'age_of_domain', 'DNSRecord', 'web_traffic', 'Page_Rank',
+       'Google_Index', 'Links_pointing_to_page', 'Statistical_report',
+       'Result'],
+      dtype='str')
+[2026-09-14 10:40:22,363] 40 networkSecurity - INFO - required number of columns:31
+[2026-09-14 10:40:22,366] 41 networkSecurity - INFO - dataframe has columns:Index(['having_IP_Address', 'URL_Length', 'Shortining_Service',
+       'having_At_Symbol', 'double_slash_redirecting', 'Prefix_Suffix',
+       'having_Sub_Domain', 'SSLfinal_State', 'Domain_registeration_length',
+       'Favicon', 'port', 'HTTPS_token', 'Request_URL', 'URL_of_Anchor',
+       'Links_in_tags', 'SFH', 'Submitting_to_email', 'Abnormal_URL',
+       'Redirect', 'on_mouseover', 'RightClick', 'popUpWidnow', 'Iframe',
+       'age_of_domain', 'DNSRecord', 'web_traffic', 'Page_Rank',
+       'Google_Index', 'Links_pointing_to_page', 'Statistical_report',
+       'Result'],
+      dtype='str')
+[2026-09-14 10:40:23,077] 38 networkSecurity - INFO - Data Validation Started
+[2026-09-14 10:40:23,078] 40 networkSecurity - INFO - Data Validation Completed
+[2026-09-14 10:40:23,080] 48 networkSecurity - INFO - Initiate the data transformation  from main.py
+[2026-09-14 10:40:23,081] 52 networkSecurity - INFO - We are iniiating the Data Transformation
+[2026-09-14 10:40:23,731] 50 networkSecurity - INFO - Pickle filed is dumped ! 
+[2026-09-14 10:40:23,735] 50 networkSecurity - INFO - Data Transformation Started
+[2026-09-14 10:40:23,735] 52 networkSecurity - INFO - Data Transformation Completed
+[2026-09-14 10:40:23,736] 58 networkSecurity - INFO - Initiate the model trainer from main.py
+[2026-09-14 10:58:50,477] 50 networkSecurity - INFO - Pickle filed is dumped ! 
+[2026-09-14 10:58:50,486] 137 networkSecurity - INFO - Model Trainer Artifact:ModelTrainerArtifact(trained_model_file_path='Artifacts\\09_14_2026_10_39_02\\trained_model\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricsArtifact(f1_score=1.0, precision_score=0.9898291293734743, recall_score=0.993061224489796), test_metric_artifact=ClassificationMetricsArtifact(f1_score=1.0, precision_score=0.973186119873817, recall_score=0.9817024661893397))
+[2026-09-14 10:58:50,585] 60 networkSecurity - INFO - Model Trainer Started
+[2026-09-14 10:58:50,586] 62 networkSecurity - INFO - Model Trainer completed

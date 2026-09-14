@@ -5,7 +5,6 @@ import os
 import sys
 
 
-
 class NetworkModel:
 # creating a class (NetworkModel) that combines TWO things together:
 # 1. preprocessor (KNNImputer pipeline)
