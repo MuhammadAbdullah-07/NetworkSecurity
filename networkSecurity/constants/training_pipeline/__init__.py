@@ -15,6 +15,7 @@ SCHEMA_FILE_PATH=os.path.join("data_schema","schema.yaml")
 SAVED_MODEL_DIR=os.path.join("saved_model")
 MODEL_FILE_NAME="model.pkl"
 
+TRAINING_BUCKET_NAME="network-security.1"
 
 ### DATA INGESTION CONSTANT USED ALL OVER THE PROJECT
  
