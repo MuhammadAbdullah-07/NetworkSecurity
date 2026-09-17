@@ -4,8 +4,17 @@ WORKDIR /app
 
 COPY . /app
 
-RUN apt update -y && apt install awscli -y
+RUN apt-get update && apt-get install -y \
+    curl \
+    unzip \
+    && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+    && unzip awscliv2.zip \
+    && ./aws/install \
+    && rm -rf awscliv2.zip aws \
+    && apt-get clean
 
-RUN apt-get update && pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python3", "app.py", "--host", "0.0.0.0", "--port", "8000"]
+EXPOSE 8000
+
+CMD ["python3", "app.py"]
