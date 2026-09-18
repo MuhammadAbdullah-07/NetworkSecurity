@@ -1,4 +1,4 @@
-name: workslow
+name: workflow
 
 on:
   push:

@@ -4,6 +4,13 @@
 import os
 import sys
 import json
+import mlflow
+
+## DagsHub credentials
+os.environ["MLFLOW_TRACKING_URI"] = "https://dagshub.com/MuhammahAbdullah-07/NetworkSecurity.mlflow"
+os.environ["MLFLOW_TRACKING_USERNAME"] = "MuhammahAbdullah-07"
+os.environ["MLFLOW_TRACKING_PASSWORD"] = os.getenv("DAGSHUB_TOKEN")
+
 import pymongo  ## to connect to MongoDB
 from networkSecurity.exception.exception import NetworkSecurityException
 from networkSecurity.logging.logger import logger
@@ -38,6 +45,7 @@ templates = Jinja2Templates(directory="templates")
 
 from dotenv import load_dotenv
 load_dotenv()
+
 
 # then access your variables like:
 MONGO_DB_URL = os.getenv("MONGODB_URI")
