@@ -88,14 +88,7 @@ jobs:
 
       - name: Run New Container
         run: |
-          docker run -d -p 8000:8000 \
-          --name=networksecurity \
-          -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
-          -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
-          -e AWS_REGION=${{ secrets.AWS_REGION }} \
-          -e MONGODB_URI=${{ secrets.MONGODB_URI }} \
-          -e DAGSHUB_TOKEN=${{ secrets.DAGSHUB_TOKEN }} \
-          937419902559.dkr.ecr.us-east-1.amazonaws.com/network-security:latest
-
+          docker run -d -p 8000:8000 --name=networksecurity -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} -e AWS_REGION=${{ secrets.AWS_REGION }} -e MONGODB_URI=${{ secrets.MONGODB_URI }} -e DAGSHUB_TOKEN=${{ secrets.DAGSHUB_TOKEN }} 937419902559.dkr.ecr.us-east-1.amazonaws.com/network-security:latest
+          
       - name: Clean Old Docker Images
         run: docker system prune -f
