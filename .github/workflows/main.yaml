@@ -95,7 +95,7 @@ jobs:
           -e AWS_REGION=${{ secrets.AWS_REGION }} \
           -e MONGODB_URI=${{ secrets.MONGODB_URI }} \
           -e DAGSHUB_TOKEN=${{ secrets.DAGSHUB_TOKEN }} \
-          ${{ secrets.AWS_ECR_LOGIN_URI }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+          937419902559.dkr.ecr.us-east-1.amazonaws.com/network-security:latest
 
       - name: Clean Old Docker Images
         run: docker system prune -f
