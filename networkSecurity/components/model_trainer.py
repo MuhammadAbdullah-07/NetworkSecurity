@@ -14,15 +14,12 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier,GradientBoostingClassifier,AdaBoostClassifier
 
-## for tracking different models
 import mlflow
 
-## connecting dagshub
-## without dagshub, mlruns folder creates in our local folder
-## with dagshub, we get the remote code/ easy for team work
-
-import dagshub
-dagshub.init(repo_owner='MuhammadAbdullah-07', repo_name='NetworkSecurity', mlflow=True)
+## connecting dagshub via environment variables
+os.environ["MLFLOW_TRACKING_URI"] = "https://dagshub.com/MuhammadAbdullah-07/NetworkSecurity.mlflow"
+os.environ["MLFLOW_TRACKING_USERNAME"] = "MuhammadAbdullah-07"
+os.environ["MLFLOW_TRACKING_PASSWORD"] = os.getenv("DAGSHUB_TOKEN")
 
 class ModelTrainer:
     def __init__(self,data_transformation_artifact:DataTransformationArtifact,
